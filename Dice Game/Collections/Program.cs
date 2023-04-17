@@ -1,12 +1,13 @@
 ﻿
+using System.Reflection.Emit;
+
 namespace Collections
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            int choice1 = 0, choice2 = 0;
-            bool done = false; bool done1 = false; bool done2 = false; bool done3 = false;
+            bool done = false;
 
             Console.WriteLine("WELCOME USER! THIS IS COLLLECTIONS.");
             while (!done)
@@ -42,37 +43,62 @@ namespace Collections
         }
         static void INTEGERS()
         {
-            Console.WriteLine();
-            Console.WriteLine(" >>>>>>>>>>>>>>>>>INTEGERS<<<<<<<<<<<<<<<<<");
-            Console.WriteLine(" __________________________________________");
-            Console.WriteLine("|1:Sort list                               |");
-            Console.WriteLine("|2:Make new list                           |");
-            Console.WriteLine("|3:Remove a number (by value)              |");
-            Console.WriteLine("|4:Add a value to the list                 |");
-            Console.WriteLine("|5:Count occurrences of a specified number |");
-            Console.WriteLine("|6:Print the largest value                 |");
-            Console.WriteLine("|7:Print the smallest value                |");
-            Console.WriteLine("|8:Print the sum and average of # in list  |");
-            Console.WriteLine("|9:most frequently occurring value(s)      |");
-            Console.WriteLine("|10:QUIT                                   |");
-            Console.WriteLine(" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ");
-            Console.WriteLine();
+            bool done = false;
+            bool done2 = false;
+            bool done3 = false;
+            int choice = -2;
+            string choice2 = "";
+            List <int> integers = new List <int>();
+            Random Generator = new Random();
+            Console.WriteLine("Here is your starting list...");
+            for (int i = 0; i < 25; i++)
+            {
+                integers.Add(Generator.Next(1, 25));
+                Console.Write(integers[i]);
+                if (i < 24)
+                {
+                    Console.Write(", ");
+                }
+            }
+            while (!done)
+            {
+                Console.WriteLine();
+                Console.WriteLine(" >>>>>>>>>>>>>>>>>INTEGERS<<<<<<<<<<<<<<<<<");
+                Console.WriteLine(" __________________________________________");
+                Console.WriteLine("|1:Sort list                               |");
+                Console.WriteLine("|2:Make new list                           |");
+                Console.WriteLine("|3:Remove a number (by value)              |");
+                Console.WriteLine("|4:Add a value to the list                 |");
+                Console.WriteLine("|5:Count occurrences of a specified number |");
+                Console.WriteLine("|6:Print the largest value                 |");
+                Console.WriteLine("|7:Print the smallest value                |");
+                Console.WriteLine("|8:Print the sum and average of # in list  |");
+                Console.WriteLine("|9:QUIT                                    |");
+                Console.WriteLine(" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ ");
+                Console.WriteLine();
+                Console.Write("What would you like to do?(Type the number): ");
+                
+                
+            }
         }
         static void STRINGS()
         {
+            bool done = false;
+            int choice = -1;
+            List <String> strings = new List <String>();
+            Random Generator = new Random();
+            Console.WriteLine();
+            Console.WriteLine(" >>>>>>>>>>>>>STRINGS<<<<<<<<<<<<<");
+            Console.WriteLine(" _________________________________");
+            Console.WriteLine("|1:Remove vegetable(by Index)     |");
+            Console.WriteLine("|2:Remove vegetable(by value/name)|");
+            Console.WriteLine("|3:Search for vegetable(By name)  |");
+            Console.WriteLine("|4:Add a vegetable                |");
+            Console.WriteLine("|5:Sort the list                  |");
+            Console.WriteLine("|6:QUIT                           |");
+            Console.WriteLine(" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+            Console.WriteLine();
 
-            Console.WriteLine();
-            Console.WriteLine(" >>>>>>>>>>>STRINGS<<<<<<<<<<<");
-            Console.WriteLine(" _____________________________");
-            Console.WriteLine("|1:INTEGERS                   |");
-            Console.WriteLine("|2:STRINGS                    |");
-            Console.WriteLine("|3:QUIT                       |");
-            Console.WriteLine("|4:|");
-            Console.WriteLine("|5:|");
-            Console.WriteLine("|6:|");
-            Console.WriteLine(" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
-            Console.WriteLine();
         }
     }
 }
-        
