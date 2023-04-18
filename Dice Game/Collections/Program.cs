@@ -46,7 +46,7 @@ namespace Collections
                 bool done = false;
                 bool done2 = false;
                 bool done3 = false;
-                int choice = -2;
+                int choice = 0;
                 string choice2 = "";
                 List <int> integers = new List <int>();
                 Random Generator = new Random();
@@ -79,7 +79,8 @@ namespace Collections
                     Console.Write("What would you like to do?(Type the number): ");
                     if (int.TryParse(Console.ReadLine(), out choice) && choice >= 1 && choice <= 9)
                     {
-                        switch{
+                        switch (choice) 
+                        { 
                             case 1:
                                 Console.WriteLine("Case 1");
                                 break;
@@ -106,12 +107,13 @@ namespace Collections
                                 break;
                             case 9:
                                 Console.WriteLine("Case 9");
+                                done = true;
                                 break;
                         }
                     }
                     else
                     {
-                        Console.Writeline("Invalid Input");
+                        Console.WriteLine("Invalid Input");
                     }
 
                 }
