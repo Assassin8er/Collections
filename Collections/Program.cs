@@ -107,7 +107,6 @@ namespace Collections
                             case 9:
                                 Console.WriteLine("Case 9");
                                 break;
-
                         }
                     }
                     else
