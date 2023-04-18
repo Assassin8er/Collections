@@ -12,20 +12,26 @@ namespace Collections
             Console.WriteLine("WELCOME USER! THIS IS COLLLECTIONS.");
             while (!done)
             {
+                Console.WriteLine(" Enter number of choice below.");
                 Console.WriteLine(" >>>>>>>>>>MAIN MENU<<<<<<<<<<");
                 Console.WriteLine(" _____________________________");
                 Console.WriteLine("|1:INTEGERS                   |");
                 Console.WriteLine("|2:STRINGS                    |");
                 Console.WriteLine("|3:QUIT                       |");
                 Console.WriteLine(" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+                Console.Write("Choice: ");
                 string choice = Console.ReadLine();
                 switch (choice.ToLower())
                 {
                     case "1":
+                        Console.WriteLine(); Console.WriteLine(); Console.WriteLine();
                         INTEGERS();
+                        Console.WriteLine(); Console.WriteLine(); Console.WriteLine();
                         break;
                     case "2":
+                        Console.WriteLine(); Console.WriteLine(); Console.WriteLine();
                         STRINGS();
+                        Console.WriteLine(); Console.WriteLine(); Console.WriteLine();
                         break;
                     case "3":
                         Console.WriteLine();
@@ -82,13 +88,36 @@ namespace Collections
                         switch (choice) 
                         { 
                             case 1:
-                                Console.WriteLine("Case 1");
+                                Console.WriteLine("Sorting... ");
+                                Thread.Sleep(1000);
+                                integers.Sort();
+                                for (int i = 0; i < integers.Count; i++)
+                                {
+                                    Console.Write(integers[i]);
+                                    if (i < integers.Count - 1)
+                                    {
+                                        Console.Write(", ");
+                                    }
+                                }
+                                Console.WriteLine(); Console.WriteLine(); Console.WriteLine();
                                 break;
                             case 2:
-                                Console.WriteLine("Case 2");
+                                Console.WriteLine("Making List...");
+                                Thread.Sleep(500);
+                                integers.Clear();
+                                for (int i = 0; i < 25; i++)
+                                {
+                                    integers.Add(Generator.Next(1, 25));
+                                    Console.Write(integers[i]);
+                                    if (i < 24)
+                                    {
+                                        Console.Write(", ");
+                                    }
+                                }
                                 break;
                             case 3:
                                 Console.WriteLine("Case 3");
+
                                 break;
                             case 4:
                                 Console.WriteLine("Case 4");
@@ -106,7 +135,8 @@ namespace Collections
                                 Console.WriteLine("Case 8");
                                 break;
                             case 9:
-                                Console.WriteLine("Case 9");
+                                Console.WriteLine("QUITING...");
+                                Thread.Sleep(1000);
                                 done = true;
                                 break;
                         }
