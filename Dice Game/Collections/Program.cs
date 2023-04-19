@@ -52,7 +52,7 @@ namespace Collections
                 bool done = false;
                 bool done2 = false;
                 bool done3 = false;
-                int choice = 0;
+                int choice = 0, min, max;
                 string choice2 = "";
                 List <int> integers = new List <int>();
                 Random Generator = new Random();
@@ -116,8 +116,7 @@ namespace Collections
                                 }
                                 break;
                             case 3:
-                                Console.WriteLine("Case 3");
-
+                                
                                 break;
                             case 4:
                                 Console.WriteLine("Case 4");
@@ -126,17 +125,31 @@ namespace Collections
                                 Console.WriteLine("Case 5");
                                 break;
                             case 6:
-                                Console.WriteLine("Case 6");
+                                Console.WriteLine("Searching...");Thread.Sleep(500);
+
+                                Console.WriteLine();
+
+                                max = integers.Max();
+                                Console.WriteLine($"The largest value is {max}. ");
+
+                                Console.WriteLine();
                                 break;
                             case 7:
-                                Console.WriteLine("Case 7");
+                                Console.WriteLine("Searching...");Thread.Sleep(500);
+
+                                Console.WriteLine();
+
+                                min = integers.Min();
+                                Console.WriteLine($"The smallest value is {min}. ");
+
+                                Console.WriteLine();
                                 break;
                             case 8:
                                 Console.WriteLine("Case 8");
                                 break;
                             case 9:
                                 Console.WriteLine("QUITING...");
-                                Thread.Sleep(1000);
+                                Thread.Sleep(789);
                                 done = true;
                                 break;
                         }
