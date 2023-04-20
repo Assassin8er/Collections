@@ -49,10 +49,10 @@ namespace Collections
         
             static void INTEGERS()
             {
-                bool done = false;
+                bool done1 = false;
                 bool done2 = false;
-                bool done3 = false;
-                int choice = 0, min, max;
+                int choice = 0, min, max, Number,Sum, found;
+                double Avg = 0;
                 string choice2 = "";
                 List <int> integers = new List <int>();
                 Random Generator = new Random();
@@ -66,8 +66,9 @@ namespace Collections
                         Console.Write(", ");
                     }
                 }
-                while (!done)
+                while (!done1)
                 {
+                    done2 = false;
                     Console.WriteLine();
                     Console.WriteLine(" >>>>>>>>>>>>>>>>>INTEGERS<<<<<<<<<<<<<<<<< ");
                     Console.WriteLine(" __________________________________________ ");
@@ -88,6 +89,7 @@ namespace Collections
                         switch (choice) 
                         { 
                             case 1:
+                                Console.WriteLine();
                                 Console.WriteLine("Sorting... ");
                                 Thread.Sleep(1000);
                                 integers.Sort();
@@ -103,8 +105,9 @@ namespace Collections
                                 break;
                             case 2:
                                 Console.WriteLine("Making List...");
-                                Thread.Sleep(500);
+                                Thread.Sleep(800);
                                 integers.Clear();
+                                Console.WriteLine();
                                 for (int i = 0; i < 25; i++)
                                 {
                                     integers.Add(Generator.Next(1, 25));
@@ -114,17 +117,100 @@ namespace Collections
                                         Console.Write(", ");
                                     }
                                 }
+                                Console.WriteLine();
                                 break;
                             case 3:
-                                
+                                while (!done2)
+                                {
+                                    Console.WriteLine();
+                                    Console.WriteLine("Enter a number you would like to remove");
+                                    Console.Write("Number:");
+                                    if (!int.TryParse(Console.ReadLine(), out Number))
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("INVALID INPUT!");
+                                        Console.WriteLine();
+                                    }
+                                    else if (!integers.Contains(Number))
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("INVALID INPUT!");
+                                        Console.WriteLine();
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("Removing...");Thread.Sleep(500);
+                                        integers.RemoveAll(item => item == Number);
+                                        for (int i = 0; i < integers.Count; i++)
+                                        {
+                                            Console.Write(integers[i]);
+                                            if (i < integers.Count - 1)
+                                                Console.Write(", ");
+                                        }
+                                        Console.WriteLine();
+                                        done2 = true;
+                                    }
+                                }
                                 break;
                             case 4:
-                                Console.WriteLine("Case 4");
+                                while (!done2)
+                                {
+                                    Console.WriteLine();
+                                    Console.WriteLine("Enter a number you would like to remove(min:1, max:1000)");
+                                    Console.Write("Number:");
+                                    if (int.TryParse(Console.ReadLine(), out Number)&& Number >= 1 && Number <= 1000)
+                                    {
+                                        integers.Add(Number);
+                                        Console.WriteLine("Adding...");
+                                        Thread.Sleep(500);
+                                        for (int i = 0; i < integers.Count; i++)
+                                        {
+                                            Console.Write(integers[i]);
+                                            if (i < integers.Count - 1)
+                                                Console.Write(", ");
+                                        }
+                                        Console.WriteLine();
+                                        done2 = true;
+                                        
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Invalid Input");
+                                        Console.WriteLine("Please try again");
+                                    }
+                                }
                                 break;
                             case 5:
-                                Console.WriteLine("Case 5");
+                                while (!done2)
+                                {
+                                    Console.WriteLine("Please select a number:");
+                                    Console.Write("Number:");
+                                    if (!int.TryParse(Console.ReadLine(), out Number))
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("INVALID INPUT!");
+                                        Console.WriteLine();
+                                    }
+                                    else if (!integers.Contains(Number))
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("INVALID INPUT!");
+                                        Console.WriteLine();
+                                    }
+                                    else
+                                    {
+                                        List<int> Found = integers.FindAll(item => item == Number);
+                                        Console.WriteLine();
+                                        Console.WriteLine("Finding...");
+                                        Thread.Sleep(800);
+                                        Console.WriteLine($"The number {Number} occurred {Found.Count} times in the list. ");
+                                        done2 = true;
+                                    }
+                                }
                                 break;
                             case 6:
+                                Console.WriteLine();
                                 Console.WriteLine("Searching...");Thread.Sleep(500);
 
                                 Console.WriteLine();
@@ -135,6 +221,7 @@ namespace Collections
                                 Console.WriteLine();
                                 break;
                             case 7:
+                                Console.WriteLine();
                                 Console.WriteLine("Searching...");Thread.Sleep(500);
 
                                 Console.WriteLine();
@@ -145,12 +232,31 @@ namespace Collections
                                 Console.WriteLine();
                                 break;
                             case 8:
-                                Console.WriteLine("Case 8");
+                                Console.WriteLine("Here is a new list for this function");
+                                for (int i = 0; i < integers.Count; i++)
+                                {
+                                    Console.Write(integers[i]);
+                                    if (i < integers.Count - 1)
+                                        Console.Write(", ");
+                                }
+                                Console.WriteLine();
+                                Console.WriteLine("Finding...");
+                                Thread.Sleep(400);
+                                Console.WriteLine();
+                                Sum = integers.Sum();
+                                Avg = integers.Average();
+                                Avg = Math.Round(Avg, 2);
+                                Console.WriteLine($"Your Sum is {Sum} and your Average is {Avg}.");
+                                Console.WriteLine();
                                 break;
                             case 9:
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.WriteLine();
                                 Console.WriteLine("QUITING...");
                                 Thread.Sleep(789);
-                                done = true;
+                                done1 = true;
                                 break;
                         }
                     }
@@ -167,18 +273,21 @@ namespace Collections
                 int choice = -1;
                 List <String> strings = new List <String>();
                 Random Generator = new Random();
-                Console.WriteLine();
-                Console.WriteLine(" >>>>>>>>>>>>>STRINGS<<<<<<<<<<<<< ");
-                Console.WriteLine(" _________________________________ ");
-                Console.WriteLine("|1:Remove vegetable(by Index)     |");
-                Console.WriteLine("|2:Remove vegetable(by value/name)|");
-                Console.WriteLine("|3:Search for vegetable(By name)  |");
-                Console.WriteLine("|4:Add a vegetable                |");
-                Console.WriteLine("|5:Sort the list                  |");
-                Console.WriteLine("|6:QUIT                           |");
-                Console.WriteLine(" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" );
-                Console.WriteLine();
-
+                while (!done)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine(" >>>>>>>>>>>>>STRINGS<<<<<<<<<<<<< ");
+                    Console.WriteLine(" _________________________________ ");
+                    Console.WriteLine("|1:Remove vegetable(by Index)     |");
+                    Console.WriteLine("|2:Remove vegetable(by value/name)|");
+                    Console.WriteLine("|3:Search for vegetable(By name)  |");
+                    Console.WriteLine("|4:Add a vegetable                |");
+                    Console.WriteLine("|5:Sort the list                  |");
+                    Console.WriteLine("|6:QUIT                           |");
+                    Console.WriteLine(" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" );
+                    Console.WriteLine();
+                    done = true;
+                }
             }
         }
     }
