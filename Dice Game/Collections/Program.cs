@@ -51,9 +51,8 @@ namespace Collections
             {
                 bool done1 = false;
                 bool done2 = false;
-                int choice = 0, min, max, Number,Sum, found;
+                int choice = 0, min, max, Number,Sum;
                 double Avg = 0;
-                string choice2 = "";
                 List <int> integers = new List <int>();
                 Random Generator = new Random();
                 Console.WriteLine("Here is your starting list...");
@@ -157,7 +156,7 @@ namespace Collections
                                 while (!done2)
                                 {
                                     Console.WriteLine();
-                                    Console.WriteLine("Enter a number you would like to remove(min:1, max:1000)");
+                                    Console.WriteLine("Enter a number you would like to add(min:1, max:1000)");
                                     Console.Write("Number:");
                                     if (int.TryParse(Console.ReadLine(), out Number)&& Number >= 1 && Number <= 1000)
                                     {
@@ -253,7 +252,6 @@ namespace Collections
                                 Console.WriteLine();
                                 Console.WriteLine();
                                 Console.WriteLine();
-                                Console.WriteLine();
                                 Console.WriteLine("QUITING...");
                                 Thread.Sleep(789);
                                 done1 = true;
@@ -270,9 +268,15 @@ namespace Collections
             static void STRINGS()
             {
                 bool done = false;
-                int choice = -1;
+                int choice = -1, index;
                 List <String> strings = new List <String>();
                 Random Generator = new Random();
+                Console.WriteLine("Here is your list...");
+                List<string>vegetables = new List<string> {"CARROT, CELERY, BEET, RADISH, CABBAGE"};
+                for(int i = 0; i < vegetables.Count; i++)
+                {
+                    Console.WriteLine($"{i + 1} - {vegetables[i]}");
+                }
                 while (!done)
                 {
                     Console.WriteLine();
@@ -286,7 +290,68 @@ namespace Collections
                     Console.WriteLine("|6:QUIT                           |");
                     Console.WriteLine(" ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" );
                     Console.WriteLine();
-                    done = true;
+                    Console.Write("What would you like to do?(Type the number): ");
+                    if (int.TryParse(Console.ReadLine(), out choice) && choice >= 1 && choice <= 6)
+                    {
+                        switch(choice)
+                        {
+                            case 1:
+                                Console.Write("Type the index of the item you want to remove(Starts at 0):");
+
+                                break;
+                            case 2:
+                                break;
+                            case 3:
+                                break;
+                            case 4:
+                                Console.WriteLine("Enter a vegetable you would like to add.");
+                                Console.Write("Vegetable: ");
+                                string Vege = Console.ReadLine().ToUpper();
+                                vegetables.Add(Vege);
+                                Console.WriteLine("Adding...");
+                                Thread.Sleep(500);
+                                for (int i = 0; i < vegetables.Count; i++)
+                                {
+                                    Console.Write(vegetables[i]);
+                                    if (i < vegetables.Count - 1)
+                                        Console.Write(", ");
+                                }
+                                Console.WriteLine();
+
+                                break;
+                            case 5:
+                                Console.WriteLine();
+                                Console.WriteLine("Sorting... ");
+                                Thread.Sleep(1000);
+                                vegetables.Sort();
+                                for (int i = 0; i < vegetables.Count; i++)
+                                {
+                                    Console.Write(vegetables[i]);
+                                    if (i < vegetables.Count - 1)
+                                    {
+                                        Console.Write(", ");
+                                    }
+                                }
+                                Console.WriteLine(); Console.WriteLine(); Console.WriteLine();
+                                break;
+                            case 6:
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.WriteLine();
+                                Console.WriteLine("QUITING...");
+                                Thread.Sleep(789);
+                                done = true;
+                                break;
+
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("Invalid Input!");
+                        Console.WriteLine("Try Again.");
+                        Console.WriteLine();
+                    }
                 }
             }
         }
