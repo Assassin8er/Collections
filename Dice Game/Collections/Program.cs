@@ -308,7 +308,9 @@ namespace Collections
                                 Console.Write("Vegetable: ");
                                 string Vege = Console.ReadLine().ToUpper();
                                 vegetables.Add(Vege);
+                                Console.WriteLine();
                                 Console.WriteLine("Adding...");
+                                Console.WriteLine();
                                 Thread.Sleep(500);
                                 for (int i = 0; i < vegetables.Count; i++)
                                 {
