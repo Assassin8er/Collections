@@ -268,7 +268,9 @@ namespace Collections
             static void STRINGS()
             {
                 bool done = false;
+                bool done2 = false;
                 int choice = -1, index;
+                string Remove, Search, add;
                 List <String> strings = new List <String>();
                 Random Generator = new Random();
                 Console.WriteLine("Here is your list...");
@@ -279,11 +281,13 @@ namespace Collections
                 }
                 while (!done)
                 {
+
+                    done2 = false;
                     Console.WriteLine();
                     Console.WriteLine(" >>>>>>>>>>>>>STRINGS<<<<<<<<<<<<< ");
                     Console.WriteLine(" _________________________________ ");
                     Console.WriteLine("|1:Remove vegetable(by Index)     |");
-                    Console.WriteLine("|2:Remove vegetable(by value/name)|");
+                    Console.WriteLine("|2:Remove vegetable(by Val/Name)  |");
                     Console.WriteLine("|3:Search for vegetable(By name)  |");
                     Console.WriteLine("|4:Add a vegetable                |");
                     Console.WriteLine("|5:Sort the list                  |");
@@ -296,12 +300,85 @@ namespace Collections
                         switch(choice)
                         {
                             case 1:
-                                Console.Write("Type the index of the item you want to remove(Starts at 0):");
-
-                                break;
+                                while (!done2)
+                                {
+                                    Console.Write("Type the index of the item you want to remove(Starts at 0):");
+                                    if (!Int32.TryParse(Console.ReadLine(), out index))
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("Invalid Input! select a number in range(first is 0)");
+                                        Console.WriteLine();
+                                    }
+                                    else if (index > vegetables.Count -1 || index < 0)
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("Invalid Input! select a number in range(first is 0)");
+                                        Console.WriteLine();
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Removing...");
+                                        Thread.Sleep(300);
+                                        vegetables.RemoveAt(index);
+                                        Console.WriteLine();
+                                        for (int i = 0; i < vegetables.Count; i++)
+                                        {
+                                            Console.Write(vegetables[i]);
+                                            if (i < vegetables.Count - 1)
+                                                Console.Write(", ");
+                                        }
+                                        done2 = true;
+                                    }
+                                }   break;
                             case 2:
+                                while (!done2)
+                                {
+                                    string VegRemove = Console.ReadLine().ToUpper();
+                                    if (!vegetables.Contains(VegRemove))
+                                    {
+                                        Console.WriteLine();
+                                        Console.WriteLine("Invalid Input! Enter the name/value of item you want removed.");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Removing...");
+                                        Thread.Sleep(250);
+                                        Console.WriteLine();
+                                        vegetables.Remove(VegRemove);
+                                        Console.WriteLine("Removed!");
+                                        Console.WriteLine();
+                                        for (int i = 0; i < vegetables.Count; i++)
+                                        {
+                                            Console.Write(vegetables[i]);
+                                            if (i < vegetables.Count - 1)
+                                                Console.Write(", ");
+                                        }
+                                        done2 = true;
+                                    }
+                                }
                                 break;
                             case 3:
+                                while(!done2)
+                                {
+                                    Console.Write("Vegetable to Search for: ");
+                                    string VegSearch = Console.ReadLine().ToUpper();
+                                    if (!vegetables.Contains(VegSearch))
+                                    {
+                                        Console.WriteLine($"LIST DOES NOT CONTAIN {VegSearch}!");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Searching...");
+                                        Thread.Sleep(300);
+                                        for (int i = 0; i < vegetables.Count; i++)
+                                        {
+                                            if (VegSearch == vegetables[i])
+                                            {
+                                                Console.WriteLine($"Your Vegetable was located at index {i}.");
+                                            }
+                                        }
+                                    }
+                                }
                                 break;
                             case 4:
                                 Console.WriteLine("Enter a vegetable you would like to add.");
