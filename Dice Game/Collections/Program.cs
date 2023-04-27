@@ -274,7 +274,7 @@ namespace Collections
                 List <String> strings = new List <String>();
                 Random Generator = new Random();
                 Console.WriteLine("Here is your list...");
-                List<string>vegetables = new List<string> {"CARROT, CELERY, BEET, RADISH, CABBAGE"};
+                List<string>vegetables = new List<string> {"CARROT", "CELERY", "BEET", "RADISH", "CABBAGE"};
                 for(int i = 0; i < vegetables.Count; i++)
                 {
                     Console.WriteLine($"{i + 1} - {vegetables[i]}");
@@ -309,16 +309,16 @@ namespace Collections
                                         Console.WriteLine("Invalid Input! select a number in range(first is 0)");
                                         Console.WriteLine();
                                     }
-                                    else if (index > vegetables.Count -1 || index < 0)
+                                    else if (index > vegetables.Count - 1 || index < 0)
                                     {
                                         Console.WriteLine();
-                                        Console.WriteLine("Invalid Input! select a number in range(first is 0)");
+                                        Console.WriteLine("Invalid Input! select a number in range(fist is 0)");
                                         Console.WriteLine();
                                     }
                                     else
                                     {
                                         Console.WriteLine("Removing...");
-                                        Thread.Sleep(300);
+                                        Thread.Sleep(500);
                                         vegetables.RemoveAt(index);
                                         Console.WriteLine();
                                         for (int i = 0; i < vegetables.Count; i++)
