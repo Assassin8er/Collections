@@ -24,7 +24,8 @@ namespace Mono_part1
             _graphics.ApplyChanges();
 
             this.Window.Title = "My First Monogame Project";
-            base.Initialize();
+            base.Initialize(); 
+
         }
 
         protected override void LoadContent()
