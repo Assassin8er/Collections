@@ -9,6 +9,8 @@ namespace Mono_part1
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        Texture2D _circleTexture;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -34,6 +36,8 @@ namespace Mono_part1
 
             // TODO: use this.Content to load your game content here
 
+            _circleTexture = Content.Load<Texture
+
 
         }
 
@@ -52,6 +56,12 @@ namespace Mono_part1
             GraphicsDevice.Clear(Color.Yellow);
 
             // TODO: Add your drawing code here
+            _spriteBatch.Begin();
+
+
+            _spriteBatch.End();
+
+
 
             base.Draw(gameTime);
         }
