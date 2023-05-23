@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32825.248
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mono3", "Mono3.csproj", "{A99AAFFA-3FB3-4151-91AF-1D13FDB0738E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A99AAFFA-3FB3-4151-91AF-1D13FDB0738E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A99AAFFA-3FB3-4151-91AF-1D13FDB0738E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A99AAFFA-3FB3-4151-91AF-1D13FDB0738E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A99AAFFA-3FB3-4151-91AF-1D13FDB0738E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4953572A-250B-4E09-817A-4338AAD176A1}
+	EndGlobalSection
+EndGlobal
