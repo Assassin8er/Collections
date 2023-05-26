@@ -15,7 +15,6 @@ namespace Mono3
         Rectangle tribbleGreyRect, tribbleBrownRect, tribbleCreamRect, tribbleOrangeRect;
         Vector2 tribbleGreySpeed, tribbleBrownSpeed, tribbleCreamSpeed, tribbleOrangeSpeed, gravity;
 
-
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
